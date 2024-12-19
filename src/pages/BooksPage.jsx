@@ -7,6 +7,7 @@ import BookFilters from '../components/BookFilters';
 
 const BooksPage = () => {
     const { books } = useSelector(state => state.books);
+    console.log(books);
     const [filter, setFilter] = useState({
         category: "",
         recommended: false,

@@ -8,7 +8,8 @@
 // }
 //
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
+  darkMode: 'selector',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -16,5 +17,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
 

@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
 import { Link } from 'react-router-dom';
+import '../index.css';
+
 
 const BookCard = ({ book }) => {
     const dispatch = useDispatch();

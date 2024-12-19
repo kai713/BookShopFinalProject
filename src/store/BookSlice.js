@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import axios from 'axios';
 // Моковые данные книг (в реальном приложении получим их по API)
 // Пример объекта книги соответствует приблизительно сущности Book
+
 const initialBooks = [
     {
         bookId: 1,
@@ -67,7 +68,8 @@ const booksSlice = createSlice({
         error: null
     },
     reducers: {
-        // в будущем можно добавить логику получения книг из API
+        // в будущем можно добавить логику
+        // получения книг из API
         setBooks: (state, action) => {
             state.books = action.payload;
         },
