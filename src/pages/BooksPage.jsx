@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBooks } from '../store/BookSlice';
 import BookCard from '../components/BookCard';
-import BookFilters from '../components/BookFilters';
 
 const BooksPage = () => {
     const dispatch = useDispatch();
@@ -20,12 +19,6 @@ const BooksPage = () => {
             {loading && <p>Загрузка...</p>}
             {error && <p className="text-red-500">Ошибка: {error}</p>}
 
-            {/* Компонент фильтров */}
-            <BookFilters
-                onFilterChange={(filter) => console.log('Фильтры:', filter)}
-                onSearchChange={(search) => console.log('Поиск:', search)}
-                onSortChange={(sort) => console.log('Сортировка:', sort)}
-            />
 
             {/* Список книг */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

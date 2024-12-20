@@ -11,10 +11,9 @@ function Home() {
   const handleAddToWishlist = (book) => {
     dispatch(addToWishlist(book));
   };
+
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedGenre, setSelectedGenre] = useState("Все");
-
-  const genres = ["Все", "Фантастика", "Саморазвитие", "Детективы", "Детские", "Романы", "Другие"];
 
   const books = [
   ];
@@ -42,11 +41,6 @@ function Home() {
     }
   };
 
-  const handleGenreChange = (genre) => {
-    setSelectedGenre(genre);
-    setCurrentPage(0);
-  };
-
   return (
     <div>
       <section className="max-w-7xl mx-auto flex flex-col items-center text-center p-8 bg-gray-100 border-b border-gray-300">
@@ -62,19 +56,6 @@ function Home() {
       <section className="max-w-7xl mx-auto p-8 mb-24">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-gray-800">Горячие поступления</h2>
-          <div className="flex space-x-2 overflow-x-auto">
-            {genres.map((genre) => (
-              <button
-                key={genre}
-                onClick={() => handleGenreChange(genre)}
-                className={`px-4 py-2 bg-gray-200 rounded-md transition-colors duration-300 ${
-                  selectedGenre === genre ? "bg-blue-700 text-white" : "hover:bg-blue-500 hover:text-white"
-                }`}
-              >
-                {genre}
-              </button>
-            ))}
-          </div>
         </div>
 
         <div className="flex items-center mt-6">
@@ -101,12 +82,9 @@ function Home() {
       </section>
 
       <section className="max-w-7xl mx-auto p-8 mb-16">
-        
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Распродажа</h2>
         <BookList books={saleBooks} />
       </section>
-
-      
     </div>
   );
 }
