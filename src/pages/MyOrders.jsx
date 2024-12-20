@@ -107,7 +107,7 @@ function MyOrders() {
                                     <p className="text-sm">
                                         Сумма:{" "}
                                         <span className="text-gray-600 font-bold">
-                                            {order.money} грн
+                                            {order.money} KZT
                                         </span>
                                     </p>
                                 </div>

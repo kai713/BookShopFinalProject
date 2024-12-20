@@ -91,13 +91,10 @@ function Home() {
               className="w-full max-w-md lg:max-w-xl rounded-lg shadow-md"
             />
             <div
-  className="absolute bottom-4 left-4 bg-white p-4 rounded-md shadow-lg sm:bottom-3 sm:left-3 sm:p-3 md:bottom-2 md:left-2 md:p-2 lg:bottom-4 lg:left-4 lg:p-4"
+  className="absolute bottom-4 left-4 bg-white p-2 rounded-md shadow-lg sm:bottom-2 sm:left-1 sm:p-3 md:bottom-1 md:left-1 md:p-1 lg:bottom-4 lg:left-4 lg:p-4"
 >
   <p className="text-sm text-gray-600 sm:text-xs md:text-sm lg:text-base">
-    Тонкое искусство пофигизма, Всё хреново, Мужские правила.
-  </p>
-  <p className="text-lg font-bold text-blue-500 mt-2 sm:text-base md:text-lg">
-    649 KZT.
+    BestSellers 2024!
   </p>
 </div>
           </div>

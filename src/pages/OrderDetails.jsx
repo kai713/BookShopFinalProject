@@ -86,7 +86,7 @@ function OrderDetails() {
                     Итоговая сумма
                 </h2>
                 <p className="text-3xl font-bold text-gray-700 p-4">
-                    {order.money} грн
+                    {order.money} KZT
                 </p>
             </div>
         </div>

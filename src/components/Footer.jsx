@@ -6,21 +6,16 @@ const Footer = () => {
             <div className="container mx-auto text-center px-4">
                 {/* Navigation Links */}
                 <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mb-6">
-                    <a href="#about" className="text-base md:text-lg hover:underline">
-                        ABOUT US
-                    </a>
-                    <a href="#products" className="text-base md:text-lg hover:underline">
-                        PRODUCTS
-                    </a>
-                    <a href="#awards" className="text-base md:text-lg hover:underline">
-                        AWARDS
-                    </a>
-                    <a href="#help" className="text-base md:text-lg hover:underline">
-                        HELP
-                    </a>
-                    <a href="#contact" className="text-base md:text-lg hover:underline">
-                        CONTACT
-                    </a>
+                    <p className="text-base md:text-lg hover:underline">
+                        Contacts: 8-778-006-43-55📞
+                    </p>
+                    <p className="text-base md:text-lg hover:underline">
+                        AWARDS:The Best Shop 2024🏆
+                    </p>
+                    <p className="text-base md:text-lg hover:underline">
+                        Colloboartion:SDU🏫
+                    </p>
+                    
                 </div>
 
                 {/* Description */}
