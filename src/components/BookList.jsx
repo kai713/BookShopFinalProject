@@ -21,7 +21,7 @@ const BooksPage = () => {
     }, [books]);
 
     return (
-        <div className="p-2 bg-gray-50 min-h-50">
+        <div className="p-2 mb-10 bg-gray-50 min-h-50">
             {error && <p className="text-center text-red-500">{error}</p>}
 
             {/* Контейнер для горизонтального скролла */}
