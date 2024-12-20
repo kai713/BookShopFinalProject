@@ -4,37 +4,37 @@ import axios from 'axios';
 const booksSlice = createSlice({
     name: 'books',
     initialState: {
-        books: [], // Пустой массив для данных книг
-        loading: false, // Индикатор загрузки
-        error: null // Ошибка (если есть)
+        books: [], 
+        loading: false, 
+        error: null
     },
     reducers: {
         setBooks: (state, action) => {
-            state.books = action.payload; // Сохраняем книги в состояние
+            state.books = action.payload; 
         },
         setLoading: (state, action) => {
-            state.loading = action.payload; // Устанавливаем состояние загрузки
+            state.loading = action.payload;
         },
         setError: (state, action) => {
-            state.error = action.payload; // Сохраняем ошибку
+            state.error = action.payload;
         }
     }
 });
 
-// Экшены из слайса
+
 export const {setBooks, setLoading, setError} = booksSlice.actions;
 
-// Асинхронный экшен для загрузки книг с API
+
 export const fetchBooks = () => async (dispatch) => {
-    dispatch(setLoading(true)); // Включаем индикатор загрузки
+    dispatch(setLoading(true));
     try {
         const response = await axios.get('https://67640f9617ec5852caeb066d.mockapi.io/api/books/books');
         console.log(response.data);
-        dispatch(setBooks(response.data)); // Сохраняем книги в Redux
+        dispatch(setBooks(response.data));
     } catch (err) {
-        dispatch(setError(err.message)); // Сохраняем сообщение об ошибке
+        dispatch(setError(err.message));
     } finally {
-        dispatch(setLoading(false)); // Отключаем индикатор загрузки
+        dispatch(setLoading(false));
     }
 };
 

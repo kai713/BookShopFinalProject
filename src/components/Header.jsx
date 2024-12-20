@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function Header({isAuthenticated}) {
+function Header({ isAuthenticated }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -33,7 +33,6 @@ function Header({isAuthenticated}) {
     return (
         <header className="bg-gray-200 border-b">
             <div className="container mx-auto flex items-center justify-between px-4 py-3 relative">
-                {/* Burger Icon */}
                 <div
                     className="burger text-2xl cursor-pointer md:hidden"
                     onClick={toggleMenu}
@@ -41,9 +40,7 @@ function Header({isAuthenticated}) {
                     ☰
                 </div>
 
-                {/* Logo */}
-                <div className="flex items-center gap-2">
-
+                <div className="hidden md:flex items-center gap-2"> 
                     <div>
                         <Link to="/" className="text-lg font-bold text-gray-800">
                             БИБЛИОТЕЧНАЯ
@@ -54,7 +51,6 @@ function Header({isAuthenticated}) {
                     </div>
                 </div>
 
-                {/* Navigation */}
                 <nav
                     className={`${
                         menuOpen ? "block" : "hidden"
@@ -97,7 +93,6 @@ function Header({isAuthenticated}) {
                     </Link>
                 </nav>
 
-                {/* Authentication */}
                 <div className="flex items-center space-x-4">
                     {isAuthenticated ? (
                         <>
