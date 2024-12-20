@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../index.css';
 
 
-const BookFilters = ({ onFilterChange, onSearchChange, onSortChange }) => {
+const BookFilters = ({onFilterChange, onSearchChange, onSortChange}) => {
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("");
     const [recommended, setRecommended] = useState(false);
@@ -48,22 +48,30 @@ const BookFilters = ({ onFilterChange, onSearchChange, onSortChange }) => {
             </select>
 
             <label className="flex items-center">
-                <input type="checkbox" checked={recommended} onChange={() => {setRecommended(!recommended)}} className="mr-2"/>
+                <input type="checkbox" checked={recommended} onChange={() => {
+                    setRecommended(!recommended)
+                }} className="mr-2"/>
                 Рекомендованные
             </label>
 
             <label className="flex items-center">
-                <input type="checkbox" checked={newArrivals} onChange={() => {setNewArrivals(!newArrivals)}} className="mr-2"/>
+                <input type="checkbox" checked={newArrivals} onChange={() => {
+                    setNewArrivals(!newArrivals)
+                }} className="mr-2"/>
                 Новые поступления
             </label>
 
             <label className="flex items-center">
-                <input type="checkbox" checked={popular} onChange={() => {setPopular(!popular)}} className="mr-2"/>
+                <input type="checkbox" checked={popular} onChange={() => {
+                    setPopular(!popular)
+                }} className="mr-2"/>
                 Популярные
             </label>
 
             <label className="flex items-center">
-                <input type="checkbox" checked={discounted} onChange={() => {setDiscounted(!discounted)}} className="mr-2"/>
+                <input type="checkbox" checked={discounted} onChange={() => {
+                    setDiscounted(!discounted)
+                }} className="mr-2"/>
                 Со скидками
             </label>
 

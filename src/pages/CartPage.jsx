@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateQuantity, setCoupon, applyCouponDiscount } from '../store/cartSlice';
+import React, {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {removeFromCart, updateQuantity, setCoupon, applyCouponDiscount} from '../store/cartSlice';
 
 const CartPage = () => {
-    const { items, coupon, discountAmount } = useSelector(state => state.cart);
+    const {items, coupon, discountAmount} = useSelector(state => state.cart);
     const dispatch = useDispatch();
 
     const [localCoupon, setLocalCoupon] = useState(coupon);
@@ -14,7 +14,7 @@ const CartPage = () => {
     const total = subtotal + taxes + shipping - discountAmount;
 
     const handleUpdateQuantity = (bookId, quantity) => {
-        dispatch(updateQuantity({ bookId, quantity: Number(quantity) }));
+        dispatch(updateQuantity({bookId, quantity: Number(quantity)}));
     };
 
     const applyCoupon = () => {
@@ -55,7 +55,8 @@ const CartPage = () => {
                                 </td>
                                 <td>{item.price * item.quantity} KZT</td>
                                 <td>
-                                    <button className="text-red-500" onClick={() => dispatch(removeFromCart(item.bookId))}>
+                                    <button className="text-red-500"
+                                            onClick={() => dispatch(removeFromCart(item.bookId))}>
                                         Удалить
                                     </button>
                                 </td>
@@ -74,7 +75,9 @@ const CartPage = () => {
                                 value={localCoupon}
                                 onChange={(e) => setLocalCoupon(e.target.value)}
                             />
-                            <button onClick={applyCoupon} className="bg-blue-500 text-white p-2 mt-2 rounded">Применить купон</button>
+                            <button onClick={applyCoupon} className="bg-blue-500 text-white p-2 mt-2 rounded">Применить
+                                купон
+                            </button>
                         </div>
                         <div className="border p-4 flex flex-col">
                             <p>Подытог: {subtotal} KZT</p>

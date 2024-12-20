@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BookList from "../components/BookList.jsx";
 import { useDispatch } from "react-redux";
-import { addToWishlist } from "../store/slices/wishlistSlice";
+import { addToWishlist } from "../store/WishlistSlice.js";
 
 
 function Home() {
@@ -17,24 +17,9 @@ function Home() {
   const genres = ["Все", "Фантастика", "Саморазвитие", "Детективы", "Детские", "Романы", "Другие"];
 
   const books = [
-    { id: 1, title: "Порядок в Хаосе", genre: "Саморазвитие", author: "Константин Коптелов", price: 300, image: "path-to-image-1.jpg" },
-    { id: 2, title: "Смарагдовая книга", genre: "Фантастика", author: "Керстин Гир", price: 225, image: "path-to-image-2.jpg" },
-    { id: 3, title: "Зося в зоопарке", genre: "Детские", author: "Агнешка Тышка", price: 86, image: "path-to-image-3.jpg" },
-    { id: 4, title: "Мотиватор", genre: "Саморазвитие", author: "Наталья Зотова", price: 214, image: "path-to-image-4.jpg" },
-    { id: 5, title: "Без маски", genre: "Другие", author: "Михаил Бурняшев", price: 778, image: "path-to-image-5.jpg" },
-    { id: 6, title: "1984", genre: "Фантастика", author: "Джордж Оруэлл", price: 300, image: "path-to-image-6.jpg" },
-    { id: 7, title: "Гарри Поттер", genre: "Фантастика", author: "Дж. Роулинг", price: 350, image: "path-to-image-7.jpg" },
-    { id: 8, title: "Мастер и Маргарита", genre: "Романы", author: "М. Булгаков", price: 400, image: "path-to-image-8.jpg" },
-    { id: 9, title: "Шерлок Холмс", genre: "Детективы", author: "А. Конан Дойл", price: 280, image: "path-to-image-9.jpg" },
-    { id: 10, title: "Муми-тролли", genre: "Детские", author: "Т. Янссон", price: 150, image: "path-to-image-10.jpg" },
   ];
 
   const saleBooks = [
-    { id: 1, title: "Порядок в Хаосе", genre: "Саморазвитие", author: "Константин Коптелов", price: 300, image: "path-to-image-1.jpg" },
-    { id: 2, title: "Смарагдовая книга", genre: "Фантастика", author: "Керстин Гир", price: 225, image: "path-to-image-2.jpg" },
-    { id: 3, title: "Зося в зоопарке", genre: "Детские", author: "Агнешка Тышка", price: 86, image: "path-to-image-3.jpg" },
-    { id: 4, title: "Мотиватор", genre: "Саморазвитие", author: "Наталья Зотова", price: 214, image: "path-to-image-4.jpg" },
-    { id: 5, title: "Без маски", genre: "Другие", author: "Михаил Бурняшев", price: 778, image: "path-to-image-5.jpg" }
   ];
 
   const booksPerPage = 5;

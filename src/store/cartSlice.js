@@ -17,7 +17,7 @@ const cartSlice = createSlice({
                 state.items.push({
                     bookId: book.bookId,
                     title: book.title,
-                    author: book.author.name,
+                    author: book.authorName,
                     price: book.price - (book.discount || 0),
                     quantity: quantity
                 });

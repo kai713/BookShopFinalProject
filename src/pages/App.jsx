@@ -1,11 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import BooksPage from './pages/BooksPage';
-import CartPage from './pages/CartPage';
-import BookDetailPage from './pages/BookDetailPage';
-import OrderDetails from './pages/OrderDetails';
+import Header from '/Header';
+import Footer from '/Footer';
+import BooksPage from '/BooksPage';
+import CartPage from '/CartPage';
+import OrderDetails from '/OrderDetails';
 
 const App = () => {
     return (
