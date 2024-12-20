@@ -8,6 +8,7 @@ import MainPage from './pages/Home';
 import BooksPage from './pages/BooksPage';
 import CartPage from './pages/CartPage';
 import BookDetailPage from './pages/BookDetailPage';
+import OrderDetails from './pages/OrderDetails';
 
 const App = () => {
     return (
@@ -20,7 +21,9 @@ const App = () => {
     <Route path="/books" element={<BooksPage />} />
     <Route path="/books/:id" element={<BookDetailPage />} />
     <Route path="/cart" element={<CartPage />} />
-    <Route path="/orders" element={<MyOrders />} /> {/* Маршрут для MyOrders */}
+    <Route path="/order" element={<MyOrders />} />
+    <Route path="/order/:orderId" element={<OrderDetails />} />
+                
 </Routes>
 
             </div>
