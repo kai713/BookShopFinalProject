@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.header {
+  background-color: #bababac1;
+  height: 100%;
+}
+.logo__image {
+  width: 42px;
+}
+.header__els {
+  display: flex;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  margin: 0 auto;
+  height: 80px;
+  align-items: center;
+  font-size: 12px;
+  justify-content: center;
+  text-align: center;
+  justify-content: space-between;
+  max-width: 1200px;
+}
+
+.logo {
+  display: flex;
+  gap: 5px;
+  color: rgb(75, 40, 40);
+}
+
+.logo a {
+  color: rgb(75, 40, 40);
+  font-size: 14px;
+  font-weight: 900;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.logo_lower {
+  font-size: 13px;
+  font-weight: 700;
+}
+.logo a:hover {
+  color: rgb(71, 71, 71);
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.auth a,
+.auth button {
+  margin-left: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #333;
+}
+
+.auth button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  background-color: rgb(100, 53, 53);
+  border-radius: 5px;
+}
+
+.auth a:hover,
+nav a:hover {
+  text-decoration: underline;
+}
+
+.auth button:hover {
+  background-color: rgb(75, 40, 40);
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 800px) {
+  .logo {
+    display: none;
+  }
+  .header__els {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+  nav {
+    display: none;
+  }
+  .header__els.active nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  nav a {
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  nav a {
+    margin: 0 5px;
+  }
+}
+
+/* Бургер-иконка */
+.burger {
+  display: none; /* По умолчанию скрыта */
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 0; /* Убираем любой лишний отступ */
+  position: absolute; /* Абсолютное позиционирование */
+  top: 20px; /* Отступ сверху */
+  left: 10px; /* Прижимаем к левому краю */
+  z-index: 10; /* Чтобы иконка была выше других элементов */
+}
+
+/* Для мобильных устройств */
+@media screen and (max-width: 800px) {
+  .burger {
+    display: block; /* Показываем бургер-иконку */
+  }
+  .active {
+    padding-top: 20px;
+  }
+  .active a {
+    margin-top: 20px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  nav.active {
+    display: flex;
+    transform: translateX(0);
+  }
+}

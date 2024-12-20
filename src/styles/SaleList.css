@@ -1,0 +1,28 @@
+.book-list {
+    display: flex;
+    gap: 1rem;
+    width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto; /* Горизонтальная прокрутка */
+    scroll-behavior: smooth; /* Плавная прокрутка */
+    padding: 1rem 0;
+  }
+  
+  .book-list::-webkit-scrollbar {
+    height: 8px; /* Высота полосы прокрутки */
+  }
+  
+  .book-list::-webkit-scrollbar-thumb {
+    background: #ccc; /* Цвет полосы прокрутки */
+    border-radius: 4px;
+  }
+  
+  .book-list::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Цвет полосы при наведении */
+  }
+  
+  .book-card {
+    flex: 0 0 200px; /* Ширина карточки */
+    scroll-snap-align: start; /* Прокрутка фиксирует карточку */
+  }
+  
