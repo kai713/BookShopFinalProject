@@ -93,9 +93,9 @@ function Home() {
             <div
   className="absolute bottom-4 left-4 bg-white p-2 rounded-md shadow-lg sm:bottom-2 sm:left-1 sm:p-3 md:bottom-1 md:left-1 md:p-1 lg:bottom-4 lg:left-4 lg:p-4"
 >
-  <p className="text-sm text-gray-600 sm:text-xs md:text-sm lg:text-base">
-    BestSellers 2024!
-  </p>
+<p className="text-sm text-gray-600 sm:text-xs md:text-sm lg:text-base overflow-hidden whitespace-nowrap border-r-2 border-gray-500 animate-typing">
+      BestSellers 2024
+    </p>
 </div>
           </div>
         </div>
