@@ -8,7 +8,10 @@ import MainPage from './pages/Home';
 import BooksPage from './pages/BooksPage';
 import CartPage from './pages/CartPage';
 import OrderDetails from './pages/OrderDetails';
-
+import ProfilePage from './pages/ProfilePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import WishlistPage from './pages/WishlistPage';
 const App = () => {
     return (
         <div className="min-h-screen flex flex-col">
@@ -20,6 +23,10 @@ const App = () => {
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/order" element={<MyOrders/>}/>
                     <Route path="/order/:orderId" element={<OrderDetails/>}/>
+                    <Route path="/wishlist" element={<WishlistPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/login" element={<LoginPage/>} />
+                    <Route path="/register" element={<RegisterPage/>} />
                     <Route path="*" element={<div>Страница не найдена</div>}/>
                 </Routes>
             </div>
