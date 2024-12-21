@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const booksSlice = createSlice({
@@ -21,20 +21,19 @@ const booksSlice = createSlice({
     }
 });
 
+export const { setBooks, setLoading, setError } = booksSlice.actions;
 
-export const {setBooks, setLoading, setError} = booksSlice.actions;
-
-
+// Thunk для загрузки данных
 export const fetchBooks = () => async (dispatch) => {
-    dispatch(setLoading(true));
+    dispatch(setLoading(true)); // Установка состояния загрузки
     try {
-        const response = await axios.get('https://67640f9617ec5852caeb066d.mockapi.io/api/books/books');
-        console.log(response.data);
-        dispatch(setBooks(response.data));
+        const response = await axios.get('http://localhost:8080/api/books');
+        console.log(response.data); // Лог данных
+        dispatch(setBooks(response.data)); // Обновление списка книг
     } catch (err) {
-        dispatch(setError(err.message));
+        dispatch(setError(err.message)); // Обработка ошибки
     } finally {
-        dispatch(setLoading(false));
+        dispatch(setLoading(false)); // Завершение загрузки
     }
 };
 
