@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUser } from "../store/userSlice";
+import { updateUser } from "../store/UserSlice";
 
 const UserStatistics = () => {
   const user = useSelector((state) => state.user.user);
@@ -70,8 +70,22 @@ const UserStatistics = () => {
       )}
       <button
         onClick={toggleEdit}
-        className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md shadow-md hover:bg-blue-600 transition"
+        className="mt-4 w-full py-2 flex items-center justify-center gap-2 bg-purple-500 text-white font-semibold rounded-full shadow-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-105"
       >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15.232 5.232l3.536 3.536M16.5 3.5a2.121 2.121 0 113 3l-12 12a4 4 0 01-1.5 1l-4 1 1-4a4 4 0 011-1.5l12-12z"
+          />
+        </svg>
         {isEditing ? "Скрыть Редактирование" : "Редактировать Статистику"}
       </button>
     </div>

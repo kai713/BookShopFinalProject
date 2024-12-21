@@ -1,26 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axiosInstance from "../api/axiosInstance";
 
 export const authenticateUser = createAsyncThunk(
-  "auth/authenticateUser",
+  "/auth",
   async (userInfo, { rejectWithValue }) => {
-    // Adjust endpoints: registration vs. login
-    const endpoint = userInfo.name ? "/api/auth/register" : "/api/auth/login";
+    // Выбор эндпоинта: регистрация или логин
+    const endpoint = userInfo.name ? "/register" : "/login";
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userInfo),
-      });
-      if (!response.ok) {
-        // Use response status for better error handling
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Authentication failed");
-      }
-      return await response.json();
+      const response = await axiosInstance.post(endpoint, userInfo);
+      return response.data; // Возвращаем данные от сервера
     } catch (error) {
-      return rejectWithValue(error.message);
+      // Если сервер вернул ошибку
+      if (error.response) {
+        return rejectWithValue(error.response.data.message);
+      }
+      return rejectWithValue("Network error");
     }
   }
 );
@@ -35,7 +29,8 @@ const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.user = null;
-      state.error = null; // Clear any errors on logout
+      state.error = null; // Сбрасываем ошибки
+      localStorage.removeItem("token"); // Удаляем токен при выходе
     },
   },
   extraReducers: (builder) => {
@@ -47,6 +42,7 @@ const authSlice = createSlice({
       .addCase(authenticateUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload;
+        localStorage.setItem("token", action.payload.token); // Сохраняем токен
       })
       .addCase(authenticateUser.rejected, (state, action) => {
         state.loading = false;

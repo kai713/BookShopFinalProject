@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../store/authSlice";
+import axios from "axios";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -23,8 +24,13 @@ const RegisterForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(authenticateUser(formData));
+    e.preventDefault(); // Prevent page reload
+    if (formData.name && formData.email && formData.password && formData.phone) {
+      console.log("Form submitted:", formData);
+      axios.post("http://localhost:8080/register", formData)
+    } else {
+      alert("Please fill out all fields!");
+    }
   };
 
   return (
@@ -65,8 +71,7 @@ const RegisterForm = () => {
               value={formData.phone}
               onChange={handleChange}
               className="w-full pl-3 outline-none text-gray-700 placeholder-gray-400 focus:placeholder-gray-500"
-              pattern="^\\+?[1-9]\d{1,14}$"
-              title="Phone number should be in international format, e.g., +1234567890"
+              title="Phone number"
               required
             />
           </div>

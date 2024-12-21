@@ -1,18 +1,20 @@
+// src/store/WishlistSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
-  items: [], // Список избранного
-};
 
 const wishlistSlice = createSlice({
   name: "wishlist",
-  initialState,
+  initialState: {
+    items: [], // Array to store wishlist items
+  },
   reducers: {
     addToWishlist: (state, action) => {
-      state.items.push(action.payload); // Добавляем книгу в избранное
+      const exists = state.items.some((item) => item.id === action.payload.id);
+      if (!exists) {
+        state.items.push(action.payload);
+      }
     },
     removeFromWishlist: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload.id); // Удаляем из избранного
+      state.items = state.items.filter((item) => item.id !== action.payload);
     },
   },
 });
