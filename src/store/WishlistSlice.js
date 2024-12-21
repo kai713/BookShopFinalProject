@@ -7,16 +7,16 @@ const wishlistSlice = createSlice({
   },
   reducers: {
     addToWishlist: (state, action) => {
-      const exists = state.items.some((item) => item.id === action.payload.id);
+      const exists = state.items.some((item) => item.bookId === action.payload.bookId);
       if (!exists) {
         state.items.push(action.payload); // Добавляем уникальный элемент
       }
     },
     removeFromWishlist: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload); // Удаляем элемент по ID
+      state.items = state.items.filter((item) => item.bookId !== action.payload); // Удаляем элемент по bookId
     },
   },
 });
 
 export const { addToWishlist, removeFromWishlist } = wishlistSlice.actions;
-export default wishlistSlice.reducer;
+export default wishlistSlice.reducer; 
