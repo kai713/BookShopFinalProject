@@ -4,12 +4,32 @@
 
 html,
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
+/* styles.css */
+/* Custom Scrollbar */
+.custom-scrollbar {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #a0aec0 #edf2f7; /* Цвет ползунка и трека */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 8px; /* Высота горизонтального скроллбара */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #a0aec0; /* Цвет ползунка */
+    border-radius: 4px; /* Закругленные края */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #edf2f7; /* Цвет фона трека */
+  }
+  

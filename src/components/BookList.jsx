@@ -1,45 +1,56 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
-import BookCard from "./BookCardMain"; // Импортируем компонент карточки книги
-import "../styles/BookList.css";
+import React, { useEffect, useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBooks } from '../store/BookSlice';
+import BookCard from '../components/BookCardMain';
 
-function BookList() {
-    const [books, setBooks] = useState([]); // Состояние для хранения списка книг
-    const [loading, setLoading] = useState(true); // Состояние для загрузки
-    const [error, setError] = useState(null); // Состояние для ошибок
-
-    // Функция для рандомизации массива
-    const getRandomBooks = (books, count) => {
-        const shuffled = [...books].sort(() => 0.5 - Math.random()); // Рандомизация массива
-        return shuffled.slice(0, count); // Возвращаем первые `count` элементов
-    };
+const BooksPage = () => {
+    const dispatch = useDispatch();
+    const { books, loading, error } = useSelector((state) => state.books);
+    const [displayedBooks, setDisplayedBooks] = useState([]); // Книги, которые отображаются
+    const loaderRef = useRef(null); // Ссылка на контейнер для скролла
 
     useEffect(() => {
-        const fetchBooks = async () => {
-            try {
-                const response = await axios.get("https://676534c152b2a7619f5ec072.mockapi.io/books");
-                const randomBooks = getRandomBooks(response.data, 5); // Получаем 5 случайных книг
-                setBooks(randomBooks);
-            } catch (err) {
-                setError("Ошибка загрузки данных.");
-            } finally {
-                setLoading(false); // Убираем индикатор загрузки
-            }
-        };
+        // Загружаем книги один раз
+        dispatch(fetchBooks());
+    }, [dispatch]);
 
-        fetchBooks();
-    }, []);
-
-    if (loading) return <div className="text-center text-gray-500">Загрузка...</div>;
-    if (error) return <div className="text-center text-red-500">{error}</div>;
+    useEffect(() => {
+        if (books.length > 0) {
+            setDisplayedBooks(books.slice(0, 15)); // Загружаем первые 15 книг в скролл
+        }
+    }, [books]);
 
     return (
-        <div className="book-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-            {books.map((book) => (
-                <BookCard key={book.id} book={book}/> // Передаём данные книги в BookCardMain
-            ))}
+        <div className="p-2 mb-10 bg-gray-50 min-h-50">
+            {error && <p className="text-center text-red-500">{error}</p>}
+
+            {/* Контейнер для горизонтального скролла */}
+            <div
+                className="flex overflow-x-auto overflow-y-hidden bg-white shadow-md rounded-lg p-4 space-x-4 custom-scrollbar"
+                ref={loaderRef}
+                style={{
+                    maxWidth: '100%',
+                    scrollSnapType: 'x mandatory', // Плавная прокрутка
+                }}
+            >
+                {displayedBooks.map((book) => (
+                    <div
+                        key={book.bookId}
+                        className="flex-shrink-0"
+                        style={{
+                            minWidth: '240px', // Минимальная ширина для каждой карточки
+                            flex: '0 0 auto',
+                            scrollSnapAlign: 'start', // Прокрутка останавливается на карточке
+                        }}
+                    >
+                        <BookCard book={book} />
+                    </div>
+                ))}
+            </div>
+
+            {loading && <div className="text-center mt-4">Загрузка...</div>}
         </div>
     );
-}
+};
 
-export default BookList;
+export default BooksPage;
